@@ -39,6 +39,9 @@ class EpisodesScraper(Resource):
         print('===> Search request for show = ', simple_info)
         results = []
         for scraper in selected_scrapers:
-            scraper_sources = self.get_scraper_sources(self.torrent_scrapers[scraper], scraper)
-            results += scraper_sources.episode(simple_info, all_info)
+            try:
+                scraper_sources = self.get_scraper_sources(self.torrent_scrapers[scraper], scraper)
+                results += scraper_sources.episode(simple_info, all_info)
+            except Exception as e:
+                print('Scraper {scraper} error', e)
         return jsonify(results)
