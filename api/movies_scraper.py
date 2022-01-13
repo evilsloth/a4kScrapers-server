@@ -23,9 +23,6 @@ class MoviesScraper(Resource):
         print('===> Search request for title = [' + title + "] year = [" + year + "] imdb = [" + imdb + "]")
         results = []
         for scraper in scrapers.get_torrent():
-            try:
-                scraper_sources = self.get_scraper_sources(self.torrent_scrapers[scraper], scraper)
-                results += scraper_sources.movie(title, year, imdb)
-            except Exception as e:
-                print('Scraper {scraper} error', e)
+            scraper_sources = self.get_scraper_sources(self.torrent_scrapers[scraper], scraper)
+            results += scraper_sources.movie(title, year, imdb)
         return jsonify(results)
