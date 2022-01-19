@@ -17,12 +17,17 @@ class MoviesScraper(Resource):
         return self.scraper_sources_dict[scraper]
 
     def get(self):
+        selected_scrapers = scrapers.get_torrent()
+
+        if (request.args.get('scraper')):
+            selected_scrapers = [request.args.get('scraper')]
+
         title = request.args.get('title')
         year = request.args.get('year')
         imdb = request.args.get('imdb')
-        print('===> Search request for title = [' + title + "] year = [" + year + "] imdb = [" + imdb + "]")
+        print('===> Search request for title = [' + title + "] year = [" + str(year) + "] imdb = [" + str(imdb) + "]")
         results = []
-        for scraper in scrapers.get_torrent():
+        for scraper in selected_scrapers:
             scraper_sources = self.get_scraper_sources(self.torrent_scrapers[scraper], scraper)
             results += scraper_sources.movie(title, year, imdb)
         return jsonify(results)

@@ -60,7 +60,7 @@ class sources(core.DefaultSources):
 
         return torrent
 
-    def movie(self, title, year, **kwargs):
+    def movie(self, title, year, imdb=None, **kwargs):
         return []
 
     def episode(self, simple_info, all_info, **kwargs):
