@@ -1,0 +1,11 @@
+# git
+.git
+
+# docs
+*.md
+
+# compiled files
+**/__pycache__
+
+# IDE - VSCode
+.vscode
