@@ -1,6 +1,9 @@
 # git
 .git
 
+# github
+.github
+
 # docs
 *.md
 
