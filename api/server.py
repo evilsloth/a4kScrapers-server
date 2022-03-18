@@ -17,4 +17,4 @@ api.add_resource(EpisodesScraper, '/episodes')
 api.add_resource(MoviesScraper, '/movies')
 
 if __name__ == '__main__':
-     serve(app, port='8091')
+     serve(app, port='8091', threads=16)
