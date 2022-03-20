@@ -35,7 +35,7 @@ class EpisodesScraper(Resource):
         all_info = {}
         all_info['showInfo'] = {}
         all_info['showInfo']['ids'] = {}
-        all_info['showInfo']['ids']['imdb'] = request.args.get('imdb')
+        all_info['showInfo']['ids']['imdb'] = request.args.get('imdb') or ''
         print('===> Search request for show = ', simple_info)
         results = []
         for scraper in selected_scrapers:

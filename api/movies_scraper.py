@@ -24,7 +24,7 @@ class MoviesScraper(Resource):
 
         title = request.args.get('title')
         year = request.args.get('year')
-        imdb = request.args.get('imdb')
+        imdb = request.args.get('imdb') or ''
         print('===> Search request for title = [' + title + "] year = [" + str(year) + "] imdb = [" + str(imdb) + "]")
         results = []
         for scraper in selected_scrapers:
