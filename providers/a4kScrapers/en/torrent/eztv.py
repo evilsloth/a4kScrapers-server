@@ -36,6 +36,9 @@ class sources(core.DefaultSources):
         if page > 10:
             return []
 
+        if self._imdb is None:
+            return []
+
         query = core.quote_plus(self._imdb.replace('tt', ''))
         response = self._request.get(url.base + (url.search % query) + ('&page=%s' % page))
 
