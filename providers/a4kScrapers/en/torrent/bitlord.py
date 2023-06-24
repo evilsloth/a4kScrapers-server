@@ -81,6 +81,6 @@ class sources(core.DefaultSources):
             torrent['size'] = size
         except: pass
 
-        torrent['seeds'] = el['seeds']
+        torrent['seeds'] = int(el['seeds'])
 
         return torrent

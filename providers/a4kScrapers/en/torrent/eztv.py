@@ -71,7 +71,7 @@ class sources(core.DefaultSources):
     def _info(self, el, url, torrent):
         torrent['hash'] = el['hash']
         torrent['size'] = int(el['size_bytes']) / 1024 / 1024
-        torrent['seeds'] = el['seeds']
+        torrent['seeds'] = int(el['seeds'])
 
         return torrent
 

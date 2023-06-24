@@ -106,10 +106,10 @@ class GenericTorrentScraper(object):
             seeds = safe_list_get(re.findall(r'\n👤 (\d+) ', row), 0)
         if seeds == '':
             seeds = self._parse_number(row, -2)
-        if seeds == 'N/A':
+        if seeds == '' or seeds == 'N/A':
             seeds = '0'
 
-        return seeds
+        return int(seeds)
 
     def soup_filter(self, response):
         response = normalize(response.text)
