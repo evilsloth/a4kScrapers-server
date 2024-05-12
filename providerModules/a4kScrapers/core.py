@@ -431,7 +431,7 @@ class CoreScraper(object):
         if self._url is not None:
             return self._url
 
-        if self.caller_name in ['showrss', 'lime', 'bt4g', 'btscene', 'glo', 'torrentapi', 'torrentz2', 'scenerls', 'piratebay', 'magnetdl', 'torrentio']:
+        if self.caller_name in ['anirena', 'btdig', 'bt4g', 'btscene', 'glo', 'eztv', 'lime', 'rutor', 'torrentapi', 'torrentz2', 'showrss', 'scenerls', 'piratebay', 'magnetdl', 'torrentio', 'torrentioelf']:
             self._request.skip_head = True
 
         return self._request.find_url(self._urls)
@@ -461,7 +461,7 @@ class CoreScraper(object):
                     torrent['seeds'] = 0
 
             try:
-                if self.caller_name == 'torrentio':
+                if 'torrentio' in self.caller_name:
                     torrent['episode_size'] = torrent['size']
                 if self.caller_name == 'bitsearch':
                     torrent['size'] = torrent['size'] * 0.93
